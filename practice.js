@@ -72,14 +72,29 @@ x('435-215-9248');
   After the function has been called N number of times, console.log('STAHHP');
 */
 
-function outter(func) {
+// function outter(func) {
+//     return function() {
+//         func();
+//         if()
+//        // only executed once;
+//     } else {
+//         console.log('Stop');
+//     }
+// }
+
+function funky(f, callTimes) {
+    var count = 0;
     return function() {
-        func();
-        if()
-       // only executed once;
+        if (count <= callTimes) {
+        f();
+        count++;
     } else {
-        console.log('Stop');
+        console.log('STAHHP');
     }
 }
 
-
+var returnedF = funky(function() {
+    alert('first';)
+}, 2)
+returnedF();
+returnedF();
